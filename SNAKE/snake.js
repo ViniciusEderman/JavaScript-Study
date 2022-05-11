@@ -42,6 +42,8 @@ class Snake{
 
 class Apple{
     constructor(){
+        console.log("apple")
+        console.log(snake.size)
         var isTouching;
         while(true){
             isTouching = false;
@@ -52,18 +54,19 @@ class Apple{
                     isTouching = true
                 }
             }
+            console.log(this.x , this.y)
+            this.size = snake.size
+            this.color = "red"
             if(!isTouching){
                 break;
             }
-            this.color = "pink"
-            this.size = snake.size
         }
     }
 }
 
  var canvas = document.getElementById("canvas")
 
- var snake = new Snake();
+ var snake = new Snake(20,20,20);
 
  var apple = new Apple();
 
@@ -84,8 +87,32 @@ class Apple{
 
 
  function update(){
+    canvasContext.clearRect(0,0, canvas.width, canvas.height)
+    console.log("update")
     snake.move()
-    
+    eatApple()
+    checkHitWall();
+
+ }
+
+ function checkHitWall(){
+     var headTail = snake.tail[snake.tail.length -1]
+     if(headTail.x == - snake.size){
+        headTail.x = canvas.width - snake.size
+     }else if(headTail.x == canvas.width){
+        headTail.x = 0
+     }else if(headTail.y == - snake.size){
+        headTail.y = canvas.height - snake.size
+     }else if(headTail.y == canvas.height){
+        headTail.y = 0
+     }
+ }
+
+ function eatApple(){
+     if(snake.tail[snake.tail.length - 1].x == apple.x && snake.tail[snake.tail.length - 1].y == apple.y){
+            snake.tail[snake.tail.length] = {x:apple.x, y: apple.y}
+            apple = new Apple();
+     }
  }
 
  function draw(){
@@ -98,8 +125,7 @@ class Apple{
 
      canvasContext.font = "20px Arial"
      canvasContext.fillStyle = "#00FF42"
-     canvasContext.fillText("Score: ", (snake.tail.length +1),
-        canvas.width -120, 18 );  
+     canvasContext.fillText("Score: "+ (snake.tail.length -1),canvas.width - 120, 18 );  
      createRect(apple.x, apple.y, apple.size, apple.size, apple.color)    
  }
 
