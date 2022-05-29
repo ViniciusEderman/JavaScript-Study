@@ -1,5 +1,5 @@
 # SNAKEEEE GAMEEEE
-# ------- HI DEV --------- 
+# --------- HI DEV --------- 
 
 # Treinando a linguagem JavaScript com foco na construção de um mini-game 
     Definição:
