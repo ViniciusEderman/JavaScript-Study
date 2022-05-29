@@ -1,5 +1,5 @@
 # SNAKEEEE GAMEEEE
-# ---------------- 
+# ------- HI DEV --------- 
 
 # Treinando a linguagem JavaScript com foco na construção de um mini-game 
     Definição:
@@ -20,3 +20,6 @@
 # Live Serv:
     -Baixe a extensão no vscode chamada: (Live Server)
     -Após isso, clique com o botão direito do mouse no arquivo HTML com a opção(abrir com o live serv)
+
+# Obrigado por visitar, volte sempre 🤞
+    Lembrando, há outros projetinhos por aqui, pode dar uma olhadinha ❤️
